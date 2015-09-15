@@ -5804,7 +5804,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-top: 0px solid #e5e5e5;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
@@ -5825,7 +5825,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    width: 500px;
     margin: 30px auto;
   }
   .modal-content {

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Демо Магазин</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -44,9 +44,9 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" style="float:right">
                 <li>
-                    <a href="#">О компании</a>
+                    <a href="#" data-toggle="modal" data-target="#login">Вход</a>
                 </li>
                 <li>
                     <a href="#">Услуги</a>
@@ -55,7 +55,7 @@
                     <a href="#">Контакты</a>
                 </li>
                 <li>
-                    <a href="#">Корзина</a>
+                    <a href="#" onclick="goBasket()">Корзина</a>
                 </li>
             </ul>
         </div>
@@ -72,15 +72,15 @@
         <div class="col-md-3">
             <p class="lead">Демо магазин</p>
 
-            <div class="list-group">
-                <a href="#" class="list-group-item">Бытовая техника</a>
-                <a href="#" class="list-group-item">Электроника</a>
-                <a href="#" class="list-group-item">Туризм</a>
-                <a href="#" class="list-group-item">Компьютеры и комплектующие</a>
+            <div class="list-group" onclick="switchTab()">
+                <a href="#" class="list-group-item" id="appliances">Бытовая техника</a>
+                <a href="#" class="list-group-item" id="electronics">Электроника</a>
+                <a href="#" class="list-group-item" id="tourism">Туризм</a>
+                <a href="#" class="list-group-item" id="computers">Компьютеры и комплектующие</a>
             </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9" id="shopWindow">
 
             <div class="row carousel-holder">
 
@@ -112,19 +112,17 @@
                 </div>
 
             </div>
-
-            <div class="row">
-
+            <!--appliances block-->
+            <div class="row tab appliances">
                 <div class="col-sm-6 col-lg-6 col-md-6">
                     <div class="thumbnail">
                         <img src="http://placehold.it/320x150" alt="">
 
                         <div class="caption">
-                            <h4 class="pull-left">1000.99 р.</h4>
+                            <h4 class="pull-left itemCost">1000.99 р.</h4>
                             <h4><a href="#"></a>
                             </h4>
-
-                            <p>See more snippets like this online store item at <a target="_blank"
+                            <p class="itemName">See more snippets like this online store item at <a target="_blank"
                                                                                    href="http://www.bootsnipp.com">Bootsnipp
                                 - http://bootsnipp.com</a>.</p>
                         </div>
@@ -140,7 +138,7 @@
                                 <span class="glyphicon glyphicon-star"></span>
                             </p>
                         </div>
-                        <input type="button" class="btn btn-success" value="В корзину"/>
+                        <input type="button" class="btn btn-success addItem" value="В корзину"/>
                     </div>
                 </div>
 
@@ -172,13 +170,86 @@
                         <input type="button" class="btn btn-success" value="В корзину"/>
                     </div>
                 </div>
-
             </div>
+            <!--electronics items-->
+            <div class="row tab electronics">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x150" alt="">
+
+                        <div class="caption">
+                            <h4 class="pull-left">1000.99 р.</h4>
+                            <h4><a href="#"></a>
+                            </h4>
+
+                            <p>See more snippets like this online store item at <a target="_blank"
+                                                                                   href="http://www.bootsnipp.com">Bootsnipp
+                                - http://bootsnipp.com</a>.</p>
+                        </div>
+
+                        <div class="ratings">
+                            <p class="pull-right">15 просмотров</p>
+
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                        <input type="button" class="btn btn-success" value="В корзину"/>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x150" alt="">
+
+                        <div class="caption">
+                            <h4 class="pull-left">1000.99 р.</h4>
+                            <h4><a href="#"></a>
+                            </h4>
+
+                            <p>See more snippets like this online store item at <a target="_blank"
+                                                                                   href="http://www.bootsnipp.com">Bootsnipp
+                                - http://bootsnipp.com</a>.</p>
+                        </div>
+
+                        <div class="ratings">
+                            <p class="pull-right">15 просмотров</p>
+
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                        <input type="button" class="btn btn-success" value="В корзину"/>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="col-xs-offset-6 col-sm-6 col-lg-6 col-md-6">
                 <a class="btn btn-primary" style="float:right; margin:0px" target="_blank" href="#">Оформить заказ</a>
             </div>
 
+        </div>
+
+        <div class="col-md-9" id="basketWindow">
+            <h3>Ваш заказ</h3>
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <td>Наименование товара</td><td>Количество</td><td>Стоимость</td>
+                </thead>
+                <tbody id="tbodyBasket"/>
+                <tfoot>
+                    <td>Общая сумма</td><td>30000</td>
+                </tfoot>
+            </table>
         </div>
 
     </div>
@@ -203,12 +274,41 @@
 
 </div>
 <!-- /.container -->
+<!-- Modal -->
+<div id="login" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content col-xs-8">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Вход</h4>
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="row form-group col-xs-12">
+                        <label for="loginId">Логин</label>
+                        <input type="text" id="loginId" class="form-control"/>
+                    </div>
+                    <div class="row form-group col-xs-12">
+                        <label for="passwordId">Пароль</label>
+                        <input type="password" id="passwordId" class="form-control  "/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="login()">Войти</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
