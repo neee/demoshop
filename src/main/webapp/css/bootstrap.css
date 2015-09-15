@@ -2989,7 +2989,8 @@ select[multiple].form-group-lg .form-control {
 .btn {
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
