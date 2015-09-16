@@ -5757,6 +5757,9 @@ button.close {
   margin: 10px;
 }
 .modal-content {
+  margin: 0 auto;
+  margin-top: 32%;
+  float: none;
   position: relative;
   background-color: #fff;
   -webkit-background-clip: padding-box;
@@ -5799,7 +5802,7 @@ button.close {
 }
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 10px 30px 0px 30px
 }
 .modal-footer {
   padding: 15px;
