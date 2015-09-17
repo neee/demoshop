@@ -13,6 +13,7 @@ function showTab(tabId) {
     $('.tab').hide();
     $('#basketWindow').hide();
     $('#faqWindow').hide();
+    $('#howWorkWindow').hide();
     $('#shopWindow').show();
     $('.' + tabId).show();
 }
