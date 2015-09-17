@@ -6,17 +6,37 @@ function switchTab() {
     showTab(tabId);
 }
 
+function router(){
+
+}
 function showTab(tabId) {
     $('.tab').hide();
     $('#basketWindow').hide();
+    $('#faqWindow').hide();
     $('#shopWindow').show();
     $('.' + tabId).show();
 }
 
 function goBasket() {
     $('#shopWindow').hide();
+    $('#faqWindow').hide();
+    $('#howWorkWindow').hide();
     $('#basketWindow').show();
     renderTable();
+}
+
+function goFAQ(){
+    $('#shopWindow').hide();
+    $('#howWorkWindow').hide();
+    $('#basketWindow').hide();
+    $('#faqWindow').show();
+}
+
+function goHowWork(){
+    $('#shopWindow').hide();
+    $('#faqWindow').hide();
+    $('#basketWindow').hide();
+    $('#howWorkWindow').show();
 }
 
 var shopBasket = {};

@@ -46,13 +46,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav" style="float:right">
                 <li>
-                    <a href="#">Вход</a>
+                    <a href="#" onclick="sendClaim()">NEED REMOVE</a>
                 </li>
                 <li>
-                    <a href="#">Услуги</a>
+                    <a href="#" onclick="goHowWork()">Как это работает</a>
                 </li>
                 <li>
-                    <a href="#">Контакты</a>
+                    <a href="#" onclick="goFAQ()">FAQ</a>
                 </li>
                 <li>
                     <a href="#" onclick="goBasket()">Корзина</a>
@@ -70,7 +70,8 @@
     <div class="row">
 
         <div class="col-sm-3">
-            <p class="lead">Демо магазин</p>
+            <img src="img/logoalfa.png" class="img-responsive" alt="Альфа-Банк"
+                 style="margin-bottom: 21px; padding-left: 18px;">
 
             <div class="list-group" onclick="switchTab()">
                 <a href="#" class="list-group-item" id="appliances">Бытовая техника</a>
@@ -78,6 +79,7 @@
                 <a href="#" class="list-group-item" id="tourism">Туризм</a>
                 <a href="#" class="list-group-item" id="computers">Компьютеры и комплектующие</a>
             </div>
+            <img src="img/logoanketa.png" class="img-responsive" alt="КупиЛегко">
         </div>
 
         <div class="col-sm-9" id="shopWindow">
@@ -122,8 +124,9 @@
                             <h4 class="pull-left itemCost">1000.99 р.</h4>
                             <h4><a href="#"></a>
                             </h4>
+
                             <p class="itemName">See more snippets like this online store item at <a target="_blank"
-                                                                                   href="http://www.bootsnipp.com">Bootsnipp
+                                                                                                    href="http://www.bootsnipp.com">Bootsnipp
                                 - http://bootsnipp.com</a>.</p>
                         </div>
 
@@ -243,18 +246,112 @@
             <h3>Ваш заказ</h3>
             <table class="table table-condensed table-hover">
                 <thead>
-                    <td>Наименование товара</td><td>Количество</td><td>Стоимость</td>
+                <td>Наименование товара</td>
+                <td>Количество</td>
+                <td>Стоимость</td>
                 </thead>
                 <tbody id="tbodyBasket"/>
                 <tfoot>
                 </tfoot>
             </table>
-            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#login">Купить в кредит</button>
+            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#login">Купить в
+                кредит
+            </button>
+        </div>
+
+        <div class="col-sm-9" id="faqWindow" hidden>
+            <h3>Часто задаваемые вопросы</h3>
+
+            <div>
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-xs-9">
+                        <p><span
+                                style="color: red;"><b>Вопрос: </b>Как происходит интеграция с сервисом Альфа-Банка?</span>
+                        </p>
+                        <b>Ответ: </b>Вам необходимо формировать XML-сообщение и отправлять его как параметр "InXML"
+                        методом POST при переходе на ссылку (анкету банка).
+                        Запрос необходимо будет отправлять на https://anketa.alfabank.ru/alfaform-pos/endpoint
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-xs-9">
+                        <p><span style="color: red;"><b>Вопрос: </b>Когда Банк перечислит денежные средства?</span></p>
+                        <b>Ответ: </b>Денежных средств будут перечислены на следующий день после подписания клиентом
+                        кредитных документов.
+                        Для сокращения времени между покупкой товара и перечислением денег предлагаем Вам
+                        воспользоваться
+                        расчетно-кассовым обслуживанием Банка и <b>открыть счет в АО «Альфа-Банк»</b> (подробности
+                        уточните
+                        у менеджера банка)
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-xs-9">
+                        Остались вопросы?<br>
+                        Напишите нам<br>
+                        <b>is_partners@alfabank.ru</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9" id="howWorkWindow" hidden>
+            <h3>Как это работает</h3>
+
+            <div style="margin-top: 25px">
+                <table>
+                    <tr>
+                        <td width="33%">
+                            <img src="img/how1.png" class="img-responsive">
+                        </td>
+                        <td colspan="2">
+                            Клиент находит понравившийся товар в вашем интернет-магазине и в качестве способа оплаты
+                            выбирает
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Происходит автоматическая переадресация клиента на сайт Банка для ввода заявки. Клиент сам
+                            подбирает удобные для него условия кредитования с помощью калькулятора
+                        </td>
+                        <td width="33%">
+                            <img src="img/how2.png" class="img-responsive">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%">
+                            <img src="img/how3.png" class="img-responsive">
+                        </td>
+                        <td colspan="2">
+                            Клиент вводит обязательные данные и может заполнить анкету на сайте или по телефону. При
+                            втором
+                            варианте сотрудник Банка связывается с ним в течение нескольких минут и помогает заполнить
+                            анкету
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Мы сообщаем решение по кредиту в течение трех минут и уведомляем интернет-магазин
+                        </td>
+                        <td width="33%">
+                            <img src="img/how4.png" class="img-responsive">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%">
+                            <img src="img/how5.png" class="img-responsive">
+                        </td>
+                        <td colspan="2">
+                            Клиент подписывает кредитные документы при доставке товара или в ближайшем пункте подписания
+                            документов
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
 
     </div>
-
-</div>
 
 </div>
 <!-- /.container -->
@@ -295,13 +392,15 @@
                     </div>
                     <div class="row form-group">
                         <label for="emailId">Адрес электронной почты</label>
-                        <input type="email" id="emailId" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                        <input type="email" id="emailId" class="form-control"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="text-center">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="goAnketa()">Отправить заявку</button>
-
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendClaim()">
+                            Отправить заявку
+                        </button>
                     </div>
                 </div>
             </div>
