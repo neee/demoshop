@@ -146,7 +146,8 @@ function sendClaim(basket){
     //</specificationListRow>
     //</specificationList>
     //</inParams>"
-    var endpoint = "https://anketa.alfabank.ru/alfaform-pos/endpoint";
+    //var endpoint = "https://anketa.alfabank.ru/alfaform-pos/endpoint";
+    var endpoint = "/alfaform-pos/endpoint";
     post(endpoint, {inXml:xml.documentElement.outerHTML, testMode:true});
 }
 
