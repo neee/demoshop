@@ -175,6 +175,40 @@ function post(path, params, method) {
     form.submit();
 }
 
+var carouselItems = {
+
+}
+
+function changeItemsCarousel(){
+    var carousel = document.getElementById("carouselId");
+    var div1 = document.createElement("div").setAttribute("id", "carousel-example-generic").setAttribute("data-ride", "carousel");
+    div1.className = "carousel slide";
+    var ol1 = document.createElement("ol");
+    ol1.className = "carousel-indicators";
+    var li1 = document.createElement("li").setAttribute("data-target", "#carousel-example-generic").setAttribute("data-slide-to", "0");
+
+    var div2 = document.createElement("")
+
+    var newInner = document.createElement("div");
+    newInner.className = "item";
+    var image = document.createElement("img");
+    image.className = "slide-image";
+    image.setAttribute("src", "img/items/appliances/1.jpg");
+    newInner.appendChild(image);
+
+    var newInner1 = document.createElement("div");
+    newInner1.className = "item";
+    var image1 = document.createElement("img");
+    image1.className = "slide-image";
+    image1.setAttribute("src", "img/items/appliances/1.jpg");
+    newInner1.appendChild(image1);
+
+    var carouselContent = document.getElementById("carouselId");
+    carouselContent.innerHTML = "";
+    carouselContent.appendChild(newInner);
+    carouselContent.appendChild(newInner1);
+}
+
 $(document).ready(
     function () {
         var buttonsBuy = document.querySelectorAll('.addItem');
