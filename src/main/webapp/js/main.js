@@ -191,5 +191,6 @@ $(document).ready(
                 }
             });
         }
+        showTab("electronics");
     }
 )
