@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Демо Магазин</title>
+    <title>Демо-магазин Альфа-Банка</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -25,7 +25,6 @@
     <![endif]-->
 
 </head>
-
 <body>
 
 <!-- Navigation -->
@@ -40,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Демо магазин Альфа Банка</a>
+            <a class="navbar-brand" href="#">Демо-магазин Альфа-Банка</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,6 +55,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="goBasket()">Корзина</a>
+                    <div class="circle" style="position: absolute; top: 37px; left: 28px;" id="basketCount" hidden></div>
                 </li>
             </ul>
         </div>
@@ -201,9 +201,9 @@
                         <div class="thumbnail">
                             <img src="img/items/appliances/320x150-9.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-left itemCost">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">899 р.</h4>
                                 <h4><a href="#"></a></h4>
-                                <p class="itemName">See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp-http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Чайник</p>
                             </div>
                             <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
@@ -213,11 +213,11 @@
                         <div class="thumbnail">
                             <img src="img/items/appliances/320x150-10.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">15999 р.</h4>
                                 <h4><a href="#"></a></h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp-http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Электрическая плита</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item3-->
@@ -225,11 +225,11 @@
                         <div class="thumbnail">
                             <img src="img/items/appliances/320x150-11.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">27999 р.</h4>
                                 <h4><a href="#"></a></h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp-http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Холодильник</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item4-->
@@ -238,11 +238,11 @@
                             <img src="img/items/appliances/320x150-12.jpg" alt="">
 
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">3999 р.</h4>
                                 <h4><a href="#"></a></h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp-http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Микроволновая печь</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                 </div>
@@ -251,65 +251,49 @@
                     <!--item1-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
-                            <img src="img/items/electronics/320x150-5.jpg" alt="">
-
+                            <img class="itemImg" src="img/items/electronics/320x150-5.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">73999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Умные часы Apple Watch</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item2-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/electronics/320x150-6.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">75999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Моноблок Apple</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item3-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/electronics/320x150-7.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">60999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Смартфон Apple iPhone 6 Plus 64Gb</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item4-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/electronics/320x150-8.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">25999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Планшет Apple iPad Mini 2 32Gb</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                 </div>
@@ -319,64 +303,52 @@
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/tourism/320x150-14.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost" hidden>40999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName"><b>Мальдивы от 40999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="Забронировать"/>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
                         </div>
                     </div>
                     <!--item2-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/tourism/320x150-15.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost" hidden>30999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName"><b>Флоренция от 30999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="Забронировать"/>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
                         </div>
                     </div>
                     <!--item3-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/tourism/320x150-16.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost" hidden>30999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName"><b>Париж от 30999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="Забронировать"/>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
                         </div>
                     </div>
                     <!--item4-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/tourism/320x150-17.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost" hidden>40999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName"><b>Египед от 40999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="Забронировать"/>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
                         </div>
                     </div>
                 </div>
@@ -386,64 +358,48 @@
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/furniture/320x150-1.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">20999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Диван</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item2-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/furniture/320x150-2.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">5999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Комод</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item3-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/furniture/320x150-3.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">12999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Кресло</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                     <!--item4-->
                     <div class="col-sm-6 col-lg-6 col-md-6">
                         <div class="thumbnail">
                             <img src="img/items/furniture/320x150-4.jpg" alt="">
-
                             <div class="caption">
-                                <h4 class="pull-left">1000.99 р.</h4>
+                                <h4 class="pull-left itemCost">8999 р.</h4>
                                 <h4><a href="#"></a></h4>
-
-                                <p>See more snippets like this online store item at <a target="_blank"
-                                                                                       href="http://www.bootsnipp.com">Bootsnipp-
-                                    http://bootsnipp.com</a>.</p>
+                                <p class="itemName">Стул</p>
                             </div>
-                            <input type="button" class="btn btn-success" value="В корзину"/>
+                            <input type="button" class="btn btn-success addItem" value="В корзину"/>
                         </div>
                     </div>
                 </div>
@@ -456,19 +412,17 @@
         </div>
         <div class="col-sm-9" id="basketWindow" hidden>
             <h3>Ваш заказ</h3>
-            <table class="table table-condensed table-hover">
+            <table class="table table-condensed table-hover basket">
                 <thead>
-                <td>Наименование товара</td>
-                <td>Количество</td>
-                <td>Стоимость</td>
+                    <td colspan="2" style="text-align: center">Наименование товара</td>
+                    <td>Количество</td>
+                    <td>Стоимость</td>
                 </thead>
                 <tbody id="tbodyBasket"/>
                 <tfoot>
                 </tfoot>
             </table>
-            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#login">Купить в
-                кредит
-            </button>
+            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#login">Купить в кредит</button>
         </div>
 
         <div class="col-sm-9" id="faqWindow" hidden>
@@ -594,9 +548,11 @@
         <div class="modal-content col-xs-8">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Купить в кредит</h4>
+                <h4 class="modal-title">Регистрация</h4>
             </div>
             <div>
+                <h4>Для оформления кредита, пожалуйста, пройдите регистрацию в нашем интернет-магазине*</h4>
+                <h6>*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
                 <div class="modal-body">
                     <div class="row form-group">
                         <label for="nameId">Имя</label>

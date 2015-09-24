@@ -52,3 +52,24 @@ body {
 footer {
     margin: 20px 0;
 }
+
+.circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 7px 7px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    background-color: #d9534f;
+    color: white;
+    font-weight: bold;
+}
+
+.itemCost {
+    margin-right: 5px;
+}
+
+table.basket > tbody > tr > td {
+    vertical-align: middle;
+}

@@ -45,22 +45,28 @@ var shopBasket = {};
 function renderTable() {
     var tbody = document.getElementById("tbodyBasket");
     tbody.innerHTML = "";
-    var totalAma = ""
+    var totalAma = "";
     if (!$.isEmptyObject(shopBasket)) {
         for (var item in shopBasket) {
             var row = tbody.insertRow(tbody.rows.length);
-            row.insertCell(0).appendChild(document.createTextNode(item));
-            row.insertCell(1).appendChild(document.createTextNode(shopBasket[item].count));
-            row.insertCell(2).appendChild(document.createTextNode(shopBasket[item].count * shopBasket[item].cost));
+            var image = document.createElement("img");
+            image.setAttribute("src", shopBasket[item].img);
+            image.setAttribute("width", "100px");
+            row.insertCell(0).appendChild(image);
+            row.insertCell(1).appendChild(document.createTextNode(item));
+            row.insertCell(2).appendChild(document.createTextNode(shopBasket[item].count));
+            row.insertCell(3).appendChild(document.createTextNode(shopBasket[item].count * shopBasket[item].cost));
+
             totalAma += shopBasket[item].count * shopBasket[item].cost;
         }
         if (totalAma) {
             var tfoot = tbody.nextElementSibling;
             tfoot.innerHTML = "";
             var row = tfoot.insertRow();
-            row.insertCell(0).appendChild(document.createTextNode("Общая сумма"));
+            row.insertCell(0).appendChild(document.createTextNode(""));
             row.insertCell(1).appendChild(document.createTextNode(""));
-            row.insertCell(2).appendChild(document.createTextNode(totalAma));
+            row.insertCell(2).appendChild(document.createTextNode("Общая сумма"));
+            row.insertCell(3).appendChild(document.createTextNode(totalAma));
         }
     } else {
         var row = tbody.insertRow(tbody.rows.length);
@@ -175,6 +181,8 @@ function post(path, params, method) {
     form.submit();
 }
 
+var basketCount = 0;
+
 $(document).ready(
     function () {
         var buttonsBuy = document.querySelectorAll('.addItem');
@@ -182,13 +190,19 @@ $(document).ready(
             buttonsBuy[i].addEventListener("click", function () {
                 var itemCost = Number.parseFloat(event.target.parentElement.getElementsByClassName("itemCost")[0].innerText);
                 var itemCaption = event.target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemImage = event.target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
                 if (shopBasket[itemCaption]) {
                     shopBasket[itemCaption].count++;
                 } else {
                     shopBasket[itemCaption] = {};
                     shopBasket[itemCaption].count = 1;
                     shopBasket[itemCaption].cost = itemCost;
+                    shopBasket[itemCaption].img = itemImage;
                 }
+                basketCount++;
+                var basketCountElem = document.getElementById('basketCount')
+                basketCountElem.innerHTML = basketCount;
+                basketCountElem.hidden = false;
             });
         }
         showTab("electronics");
