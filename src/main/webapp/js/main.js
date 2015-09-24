@@ -41,6 +41,7 @@ function goHowWork(){
 }
 
 var shopBasket = {};
+var singleBasket = {};
 
 function renderTable() {
     var tbody = document.getElementById("tbodyBasket");
@@ -102,6 +103,7 @@ function sendClaim(basket){
     //clientInfo
     var clientInfo = xml.createElement("clientInfo");
         var lastname = xml.createElement("lastname");
+            lastname.innerHTML = "";
         var firstname = xml.createElement("firstname");
         var middlename = xml.createElement("middlename");
         var passportNamber = xml.createElement("passportNamber");
@@ -186,8 +188,19 @@ function post(path, params, method) {
 
 var basketCount = 0;
 
+function sendClaimFromBasket(){
+    
+}
+
+function sendClaimFromPage(){
+    if(!$.isEmptyObject(singleBasket)){
+        sendClaim(singleBasket);
+    }
+}
+
 $(document).ready(
     function () {
+        //set event for add to basket
         var buttonsBuy = document.querySelectorAll('.addItem');
         for (var i = 0; i < buttonsBuy.length; i++) {
             buttonsBuy[i].addEventListener("click", function () {
@@ -207,6 +220,19 @@ $(document).ready(
                 basketCountElem.innerHTML = basketCount;
                 basketCountElem.hidden = false;
             });
+        }
+        //set event for send claim form page
+        var buttonsSendClaim = document.querySelectorAll('.sendClaimFromPage');
+        for (var i = 0; i < buttonsSendClaim.length; i++){
+            buttonsSendClaim[i].addEventListener('click', function(){
+                var itemCost = Number.parseFloat(event.target.parentElement.getElementsByClassName("itemCost")[0].innerText);
+                var itemCaption = event.target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemImage = event.target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
+                singleBasket[itemCaption] = {};
+                singleBasket[itemCaption].count = 1;
+                singleBasket[itemCaption].cost = itemCost;
+                singleBasket[itemCaption].img = itemImage
+            })
         }
         showTab("electronics");
     }

@@ -308,7 +308,7 @@
                                 <p class="itemName"><b>Мальдивы от 40999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
                             <input type="button" class="btn btn-success addItem" value="Забронировать"/>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
+                            <input type="button" class="btn btn-danger sendClaimFromPage" data-toggle="modal" data-target="#registerFromPage"  value="Купить в кредит"/>
                         </div>
                     </div>
                     <!--item2-->
@@ -321,7 +321,7 @@
                                 <p class="itemName"><b>Флоренция от 30999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
                             <input type="button" class="btn btn-success addItem" value="Забронировать"/>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
+                            <input type="button" class="btn btn-danger sendClaimFromPage" data-toggle="modal" data-target="#registerFromPage"  value="Купить в кредит"/>
                         </div>
                     </div>
                     <!--item3-->
@@ -334,7 +334,7 @@
                                 <p class="itemName"><b>Париж от 30999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
                             <input type="button" class="btn btn-success addItem" value="Забронировать"/>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
+                            <input type="button" class="btn btn-danger sendClaimFromPage" data-toggle="modal" data-target="#registerFromPage"  value="Купить в кредит"/>
                         </div>
                     </div>
                     <!--item4-->
@@ -347,7 +347,7 @@
                                 <p class="itemName"><b>Египед от 40999 р.</b><br>Лучшее предложение месяца</p>
                             </div>
                             <input type="button" class="btn btn-success addItem" value="Забронировать"/>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#login">Купить в кредит</button>
+                            <input type="button" class="btn btn-danger sendClaimFromPage" data-toggle="modal" data-target="#registerFromPage"  value="Купить в кредит"/>
                         </div>
                     </div>
                 </div>
@@ -421,7 +421,7 @@
                 <tfoot>
                 </tfoot>
             </table>
-            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#login">Купить в кредит</button>
+            <button class="btn btn-danger" style="float: right" data-toggle="modal" data-target="#register">Купить в кредит</button>
         </div>
 
         <div class="col-sm-9" id="faqWindow" hidden>
@@ -541,7 +541,7 @@
 </div>
 <!-- /.container -->
 <!-- Modal -->
-<div id="login" class="modal fade" role="dialog">
+<div id="register" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content col-xs-8">
@@ -551,22 +551,22 @@
             </div>
             <div>
                 <h4>Для оформления кредита, пожалуйста, пройдите регистрацию в нашем интернет-магазине*</h4>
-                <h6>*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
                 <div class="modal-body">
                     <div class="row form-group">
                         <label for="nameId">Имя</label>
-                        <input type="text" id="nameId" class="form-control"/>
+                        <input type="text" name="name" id="nameId" class="form-control"/>
                     </div>
                     <div class="row form-group">
                         <label for="phoneId">Телефон</label>
-                        <input type="text" id="phoneId" class="form-control"/>
+                        <input type="text" name="phone" id="phoneId" class="form-control"/>
                     </div>
                     <div class="row form-group">
                         <label for="emailId">Адрес электронной почты</label>
-                        <input type="email" id="emailId" class="form-control"
+                        <input type="email" name="email" id="emailId" class="form-control"
                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                     </div>
                 </div>
+                <h6>*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
                 <div class="modal-footer">
                     <div class="text-center">
                         <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendClaim()">
@@ -578,6 +578,46 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="registerFromPage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content col-xs-8">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Регистрация</h4>
+            </div>
+            <div>
+                <h4>Для оформления кредита, пожалуйста, пройдите регистрацию в нашем интернет-магазине*</h4>
+                <div class="modal-body">
+                    <div class="row form-group">
+                        <label for="nameId1">Имя</label>
+                        <input type="text" name="name"  id="nameId1" class="form-control"/>
+                    </div>
+                    <div class="row form-group">
+                        <label for="phoneId1">Телефон</label>
+                        <input type="text" name="phone" id="phoneId1" class="form-control"/>
+                    </div>
+                    <div class="row form-group">
+                        <label for="emailId1">Адрес электронной почты</label>
+                        <input type="email" name="email" id="emailId1" class="form-control"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                    </div>
+                </div>
+                <h6>*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendClaimFromPage()">
+                            Отправить заявку
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
