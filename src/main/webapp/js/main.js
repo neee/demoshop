@@ -57,7 +57,9 @@ function renderTable() {
             row.insertCell(2).appendChild(document.createTextNode(shopBasket[item].count));
             row.insertCell(3).appendChild(document.createTextNode(shopBasket[item].count * shopBasket[item].cost));
 
+            //calculate ama
             totalAma += shopBasket[item].count * shopBasket[item].cost;
+            totalAma = Math.round(totalAma);
         }
         if (totalAma) {
             var tfoot = tbody.nextElementSibling;
@@ -73,6 +75,7 @@ function renderTable() {
         row.insertCell(0).appendChild(document.createTextNode("-"));
         row.insertCell(1).appendChild(document.createTextNode("-"));
         row.insertCell(2).appendChild(document.createTextNode("-"));
+        row.insertCell(3).appendChild(document.createTextNode("-"));
     }
 }
 
