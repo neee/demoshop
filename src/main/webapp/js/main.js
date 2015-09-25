@@ -80,10 +80,10 @@ function renderTable() {
     }
 }
 
-function sendClaim(basket){
+function sendClaimToAnketa(basket, user){
     var xml = document.implementation.createDocument('', '', null);
     var inParams = xml.createElement("inParams");
-    //companyInfp
+    //companyInfo
     var companyInfo =  xml.createElement("companyInfo");
         var inn = xml.createElement("inn");
         inn.innerHTML = "7777777";
@@ -105,11 +105,14 @@ function sendClaim(basket){
         var lastname = xml.createElement("lastname");
             lastname.innerHTML = "";
         var firstname = xml.createElement("firstname");
+            firstname.innerHTML = user.name;
         var middlename = xml.createElement("middlename");
         var passportNamber = xml.createElement("passportNamber");
         var passportSeries = xml.createElement("passportSeries");
         var email = xml.createElement("email");
+            email.innerHTML = user.email;
         var mobphone = xml.createElement("mobphone");
+            mobphone.innerHTML = user.phone;
     clientInfo.appendChild(lastname);
     clientInfo.appendChild(firstname);
     clientInfo.appendChild(middlename);
@@ -177,7 +180,7 @@ function post(path, params, method) {
             hiddenField.setAttribute("type", "hidden");
             hiddenField.setAttribute("name", key);
             hiddenField.setAttribute("value", params[key]);
-            form.setAttribute("target", "_blank");
+            //form.setAttribute("target", "_blank");
             form.appendChild(hiddenField);
         }
     }
@@ -187,14 +190,21 @@ function post(path, params, method) {
 }
 
 var basketCount = 0;
+var user = {};
 
-function sendClaimFromBasket(){
-    
-}
+function sendClaim(){
+    if(event.target.id == 'buttonClaimPage'){
+        user.name = $("#registerFromPage  input[name=name]").val();
+        user.phone = $("#registerFromPage  input[name=phone]").val();
+        user.email = $("#registerFromPage  input[name=email]").val();
+    } else {
+        user.name = $("#register input[name=name]").val();
+        user.phone = $("#register input[name=phone]").val();
+        user.email = $("#register input[name=email]").val();
+    }
 
-function sendClaimFromPage(){
     if(!$.isEmptyObject(singleBasket)){
-        sendClaim(singleBasket);
+        sendClaimToAnketa(singleBasket, user);
     }
 }
 
