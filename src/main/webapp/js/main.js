@@ -221,7 +221,7 @@ $(document).ready(
         //set event for add to basket
         var buttonsBuy = document.querySelectorAll('.addItem');
         for (var i = 0; i < buttonsBuy.length; i++) {
-            buttonsBuy[i].addEventListener("click", function () {
+            buttonsBuy[i].addEventListener("click", function() {
                 var itemCost = Number.parseFloat(event.target.parentElement.getElementsByClassName("itemCost")[0].innerText);
                 var itemCaption = event.target.parentElement.getElementsByClassName("itemName")[0].innerText;
                 var itemImage = event.target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
@@ -234,11 +234,20 @@ $(document).ready(
                     shopBasket[itemCaption].img = itemImage;
                 }
                 basketCount++;
-                var basketCountElem = document.getElementById('basketCount')
+                var basketCountElem = document.getElementById('basketCount');
                 basketCountElem.innerHTML = basketCount;
                 basketCountElem.hidden = false;
             });
+
+            buttonsBuy[i].addEventListener("click", function(){
+                var hint = event.target.parentElement.getElementsByClassName('putBasket')[0];
+                $(hint).fadeIn(300);
+                setTimeout(function(){
+                    $(hint).fadeOut(1000);
+                }, 1000);
+            });
         }
+
         //set event for send claim form page
         var buttonsSendClaim = document.querySelectorAll('.sendClaimFromPage');
         for (var i = 0; i < buttonsSendClaim.length; i++){
@@ -264,6 +273,12 @@ $(document).ready(
         $("#endDate").on("dp.change",function (e) {
             $("#startDate").data("DateTimePicker").setMaxDate(e.date);
         });
+
+        //show tooltip
+        //$(".addItem").click(function(){
+        //    $(".hover-tooltip a").tooltip('show');  // show
+        //});
+        //default tab
         showTab("electronics");
     }
 )
