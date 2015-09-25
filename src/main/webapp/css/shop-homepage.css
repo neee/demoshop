@@ -73,3 +73,11 @@ footer {
 table.basket > tbody > tr > td {
     vertical-align: middle;
 }
+
+ol.bold-symbol > li:before {
+    font-weight: bold;
+}
+
+ol.bold-symbol > li {
+    margin-bottom: 23px;
+}
