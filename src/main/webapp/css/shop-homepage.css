@@ -75,7 +75,7 @@ table.basket > tbody > tr > td {
 }
 
 ol.bold-symbol > li:before {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 ol.bold-symbol > li {
