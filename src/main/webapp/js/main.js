@@ -122,15 +122,15 @@ function sendClaimToAnketa(basket, user){
     clientInfo.appendChild(mobphone);
     //specificationList
     var specificationList = xml.createElement("specificationList");
-    if (!$.isEmptyObject(shopBasket)){
-        for(var item in shopBasket){
+    if (!$.isEmptyObject(basket)){
+        for(var item in basket){
             var row = xml.createElement("specificationListRow");
             var desc = xml.createElement("description");
             desc.innerHTML = item;
             var amount = xml.createElement("amount");
-            amount.innerHTML = shopBasket[item].count;
+            amount.innerHTML = basket[item].count;
             var price = xml.createElement("price");
-            price.innerHTML = shopBasket[item].cost;
+            price.innerHTML = basket[item].cost;
             row.appendChild(desc);
             row.appendChild(amount);
             row.appendChild(price);
@@ -160,8 +160,8 @@ function sendClaimToAnketa(basket, user){
     //</specificationListRow>
     //</specificationList>
     //</inParams>"
-    //var endpoint = "https://anketa.alfabank.ru/alfaform-pos/endpoint";
-    var endpoint = "/alfaform-pos/endpoint";
+    var endpoint = "https://anketa.alfabank.ru/alfaform-pos/endpoint";
+    //var endpoint = "/alfaform-pos/endpoint";
     post(endpoint, {inXml:xml.documentElement.outerHTML, testMode:true});
 }
 
@@ -200,7 +200,7 @@ function sendClaim(){
         if(!$.isEmptyObject(singleBasket)){
             sendClaimToAnketa(singleBasket, user);
         }
-    } else if(event.target.id = 'buttonClaimExtened'){
+    } else if(event.target.id == 'buttonClaimExtended'){
         user.name = $("#register input[name=name]").val();
         user.family = $("#register input[name=family]").val();
         if(!$.isEmptyObject(singleBasket)){
