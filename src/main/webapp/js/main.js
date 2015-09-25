@@ -197,14 +197,22 @@ function sendClaim(){
         user.name = $("#registerFromPage  input[name=name]").val();
         user.phone = $("#registerFromPage  input[name=phone]").val();
         user.email = $("#registerFromPage  input[name=email]").val();
-    } else {
+        if(!$.isEmptyObject(singleBasket)){
+            sendClaimToAnketa(singleBasket, user);
+        }
+    } else if(event.target.id = 'buttonClaimExtened'){
         user.name = $("#register input[name=name]").val();
-        user.phone = $("#register input[name=phone]").val();
-        user.email = $("#register input[name=email]").val();
-    }
-
-    if(!$.isEmptyObject(singleBasket)){
-        sendClaimToAnketa(singleBasket, user);
+        user.family = $("#register input[name=family]").val();
+        if(!$.isEmptyObject(singleBasket)){
+            sendClaimToAnketa(singleBasket, user);
+        }
+    } else {
+        user.name = $("#register  input[name=name]").val();
+        user.phone = $("#register  input[name=phone]").val();
+        user.email = $("#register  input[name=email]").val();
+        if(!$.isEmptyObject(shopBasket)){
+            sendClaimToAnketa(shopBasket, user);
+        }
     }
 }
 
@@ -244,6 +252,18 @@ $(document).ready(
                 singleBasket[itemCaption].img = itemImage
             })
         }
+
+        //setup calendar
+        $('#startDate').datetimepicker({language: 'ru', pickTime: false});
+        $('#endDate').datetimepicker({language: 'ru', pickTime: false});
+        //При изменении даты в 8 datetimepicker, она устанавливается как минимальная для endDate
+        $("#startDate").on("dp.change",function (e) {
+            $("#endDate").data("DateTimePicker").setMinDate(e.date);
+        });
+        //При изменении даты в 9 datetimepicker, она устанавливается как максимальная для startDate
+        $("#endDate").on("dp.change",function (e) {
+            $("#startDate").data("DateTimePicker").setMaxDate(e.date);
+        });
         showTab("electronics");
     }
 )
