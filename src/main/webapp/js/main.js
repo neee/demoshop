@@ -86,11 +86,12 @@ function sendClaimToAnketa(basket, user){
     //companyInfo
     var companyInfo =  xml.createElement("companyInfo");
         var inn = xml.createElement("inn");
-        inn.innerHTML = "7777777";
+        inn.innerHTML = "7804402344";
     companyInfo.appendChild(inn);
     //creditInfo
     var creditInfo = xml.createElement("creditInfo");
         var reference = xml.createElement("reference");
+            reference.innerHTML = "A0000000001";
         var firstPayment = xml.createElement("firstPayment");
         var creditPeriod = xml.createElement("creditPeriod");
         var creditProductCode = xml.createElement("creditProductCode");
@@ -131,6 +132,12 @@ function sendClaimToAnketa(basket, user){
             amount.innerHTML = basket[item].count;
             var price = xml.createElement("price");
             price.innerHTML = basket[item].cost;
+            var category = xml.createElement("category");
+            category.innerHTML = "CRT_TV";
+            var code = xml.createElement("code");
+            code.innerHTML = "#" + Math.floor((Math.random() * 100) + 1);
+            row.appendChild(code);
+            row.appendChild(category);
             row.appendChild(desc);
             row.appendChild(amount);
             row.appendChild(price);
@@ -160,9 +167,10 @@ function sendClaimToAnketa(basket, user){
     //</specificationListRow>
     //</specificationList>
     //</inParams>"
-    var endpoint = "https://anketa.alfabank.ru/alfaform-pos/endpoint";
+    //var endpoint = "http://alfaformdev/alfaform-pos/endpoint";
     //var endpoint = "/alfaform-pos/endpoint";
-    post(endpoint, {inXml:xml.documentElement.outerHTML, testMode:true});
+    var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
+    post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
 }
 
 function post(path, params, method) {
