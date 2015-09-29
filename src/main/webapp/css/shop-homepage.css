@@ -124,3 +124,15 @@ ol > li > p {
 #howWork img {
     max-width: 300px;
 }
+
+input[name='phone'] {
+    padding-left: 21px;
+}
+
+.unit {
+    position: absolute;
+    display: block;
+    left: 20px;
+    top: 116px;
+    z-index: 9;
+}
