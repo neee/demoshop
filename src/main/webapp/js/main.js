@@ -54,7 +54,7 @@ function renderTable() {
             var image = document.createElement("img");
             image.setAttribute("src", shopBasket[item].img);
             image.setAttribute("width", "100px");
-            image.setAttribute("height", "100%");
+            image.setAttribute("height", "47px");
             row.insertCell(0).appendChild(image);
             row.insertCell(1).appendChild(document.createTextNode(item));
             row.insertCell(2).appendChild(document.createTextNode(shopBasket[item].count));
@@ -71,7 +71,7 @@ function renderTable() {
             row.insertCell(0).appendChild(document.createTextNode(""));
             row.insertCell(1).appendChild(document.createTextNode(""));
             row.insertCell(2).appendChild(document.createTextNode("Общая сумма"));
-            row.insertCell(3).appendChild(document.createTextNode(totalAma));
+            row.insertCell(3).appendChild(document.createTextNode(totalAma) + " р.");
         }
     } else {
         var row = tbody.insertRow(tbody.rows.length);
@@ -171,8 +171,8 @@ function sendClaimToAnketa(basket, user){
     //</specificationList>
     //</inParams>"
     //var endpoint = "http://alfaformdev/alfaform-pos/endpoint";
-    //var endpoint = "/alfaform-pos/endpoint";
-    var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
+    var endpoint = "/alfaform-pos/endpoint";
+    //var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
     var serializedXml = new XMLSerializer().serializeToString(xml);
     //post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
     post(endpoint, {InXML:serializedXml, testMode:true});
