@@ -2,7 +2,8 @@
  * Created by neee on 15.09.15.
  */
 function switchTab() {
-    var tabId = event.target.getAttribute("id")
+    var target = event.target ? event.target : event.srcElement;
+    var tabId = target.getAttribute("id");
     showTab(tabId);
 }
 
@@ -53,6 +54,7 @@ function renderTable() {
             var image = document.createElement("img");
             image.setAttribute("src", shopBasket[item].img);
             image.setAttribute("width", "100px");
+            image.setAttribute("height", "100%");
             row.insertCell(0).appendChild(image);
             row.insertCell(1).appendChild(document.createTextNode(item));
             row.insertCell(2).appendChild(document.createTextNode(shopBasket[item].count));
@@ -86,12 +88,12 @@ function sendClaimToAnketa(basket, user){
     //companyInfo
     var companyInfo =  xml.createElement("companyInfo");
         var inn = xml.createElement("inn");
-        inn.innerHTML = "7804402344";
+        inn.textContent = "7804402344";
     companyInfo.appendChild(inn);
     //creditInfo
     var creditInfo = xml.createElement("creditInfo");
         var reference = xml.createElement("reference");
-            reference.innerHTML = "A0000000001";
+            reference.textContent = "A0000000001";
         var firstPayment = xml.createElement("firstPayment");
         var creditPeriod = xml.createElement("creditPeriod");
         var creditProductCode = xml.createElement("creditProductCode");
@@ -104,16 +106,16 @@ function sendClaimToAnketa(basket, user){
     //clientInfo
     var clientInfo = xml.createElement("clientInfo");
         var lastname = xml.createElement("lastname");
-            lastname.innerHTML = "";
+            lastname.textContent = "";
         var firstname = xml.createElement("firstname");
-            firstname.innerHTML = user.name;
+            firstname.textContent = user.name;
         var middlename = xml.createElement("middlename");
         var passportNamber = xml.createElement("passportNamber");
         var passportSeries = xml.createElement("passportSeries");
         var email = xml.createElement("email");
-            email.innerHTML = user.email;
+            email.textContent = user.email;
         var mobphone = xml.createElement("mobphone");
-            mobphone.innerHTML = user.phone;
+            mobphone.textContent = user.phone;
     clientInfo.appendChild(lastname);
     clientInfo.appendChild(firstname);
     clientInfo.appendChild(middlename);
@@ -127,15 +129,15 @@ function sendClaimToAnketa(basket, user){
         for(var item in basket){
             var row = xml.createElement("specificationListRow");
             var desc = xml.createElement("description");
-            desc.innerHTML = item;
+            desc.textContent = item;
             var amount = xml.createElement("amount");
-            amount.innerHTML = basket[item].count;
+            amount.textContent = basket[item].count;
             var price = xml.createElement("price");
-            price.innerHTML = basket[item].cost;
+            price.textContent = basket[item].cost;
             var category = xml.createElement("category");
-            category.innerHTML = "CRT_TV";
+            category.textContent = "CRT_TV";
             var code = xml.createElement("code");
-            code.innerHTML = "#" + Math.floor((Math.random() * 100) + 1);
+            code.textContent = "#" + Math.floor((Math.random() * 100) + 1);
             row.appendChild(code);
             row.appendChild(category);
             row.appendChild(desc);
@@ -149,6 +151,7 @@ function sendClaimToAnketa(basket, user){
     inParams.appendChild(creditInfo);
     inParams.appendChild(clientInfo);
     inParams.appendChild(specificationList);
+    //xml.appendChild(inParams);
     xml.appendChild(inParams);
     //<inParams>
     //    <companyInfo><inn>7804402344</inn></companyInfo>
@@ -170,7 +173,9 @@ function sendClaimToAnketa(basket, user){
     //var endpoint = "http://alfaformdev/alfaform-pos/endpoint";
     //var endpoint = "/alfaform-pos/endpoint";
     var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
-    post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
+    var serializedXml = new XMLSerializer().serializeToString(xml);
+    //post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
+    post(endpoint, {InXML:serializedXml, testMode:true});
 }
 
 function post(path, params, method) {
@@ -181,6 +186,7 @@ function post(path, params, method) {
     var form = document.createElement("form");
     form.setAttribute("method", method);
     form.setAttribute("action", path);
+    form.setAttribute("accept-charset", "UTF-8");
 
     for(var key in params) {
         if(params.hasOwnProperty(key)) {
@@ -201,14 +207,15 @@ var basketCount = 0;
 var user = {};
 
 function sendClaim(){
-    if(event.target.id == 'buttonClaimPage'){
+    var target = event.target ? event.target : event.srcElement;
+    if(target.id == 'buttonClaimPage'){
         user.name = $("#registerFromPage  input[name=name]").val();
         user.phone = $("#registerFromPage  input[name=phone]").val();
         user.email = $("#registerFromPage  input[name=email]").val();
         if(!$.isEmptyObject(singleBasket)){
             sendClaimToAnketa(singleBasket, user);
         }
-    } else if(event.target.id == 'buttonClaimExtended'){
+    } else if(target.id == 'buttonClaimExtended'){
         user.name = $("#register input[name=name]").val();
         user.family = $("#register input[name=family]").val();
         if(!$.isEmptyObject(singleBasket)){
@@ -224,15 +231,24 @@ function sendClaim(){
     }
 }
 
+function bindEvent(el, eventName, eventHandler) {
+    if (el.addEventListener){
+        el.addEventListener(eventName, eventHandler, false);
+    } else if (el.attachEvent){
+        el.attachEvent('on'+eventName, eventHandler);
+    }
+}
+
 $(document).ready(
     function () {
         //set event for add to basket
         var buttonsBuy = document.querySelectorAll('.addItem');
         for (var i = 0; i < buttonsBuy.length; i++) {
-            buttonsBuy[i].addEventListener("click", function() {
-                var itemCost = Number.parseFloat(event.target.parentElement.getElementsByClassName("itemCost")[0].innerText);
-                var itemCaption = event.target.parentElement.getElementsByClassName("itemName")[0].innerText;
-                var itemImage = event.target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
+            bindEvent(buttonsBuy[i], "click", function() {
+                var target = event.target ? event.target : event.srcElement;
+                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].innerText);
+                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemImage = target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
                 if (shopBasket[itemCaption]) {
                     shopBasket[itemCaption].count++;
                 } else {
@@ -243,12 +259,13 @@ $(document).ready(
                 }
                 basketCount++;
                 var basketCountElem = document.getElementById('basketCount');
-                basketCountElem.innerHTML = basketCount;
-                basketCountElem.hidden = false;
+                basketCountElem.textContent = basketCount;
+                $(basketCountElem).show();
             });
 
-            buttonsBuy[i].addEventListener("click", function(){
-                var hint = event.target.parentElement.getElementsByClassName('putBasket')[0];
+            bindEvent(buttonsBuy[i], "click", function(){
+                var target = event.target ? event.target : event.srcElement;
+                var hint = target.parentElement.getElementsByClassName('putBasket')[0];
                 $(hint).fadeIn(300);
                 setTimeout(function(){
                     $(hint).fadeOut(1000);
@@ -259,10 +276,11 @@ $(document).ready(
         //set event for send claim form page
         var buttonsSendClaim = document.querySelectorAll('.sendClaimFromPage');
         for (var i = 0; i < buttonsSendClaim.length; i++){
-            buttonsSendClaim[i].addEventListener('click', function(){
-                var itemCost = Number.parseFloat(event.target.parentElement.getElementsByClassName("itemCost")[0].innerText);
-                var itemCaption = event.target.parentElement.getElementsByClassName("itemName")[0].innerText;
-                var itemImage = event.target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
+            bindEvent(buttonsSendClaim[i], 'click', function(){
+                var target = event.target ? event.target : event.srcElement;
+                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].innerText);
+                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemImage = target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
                 singleBasket[itemCaption] = {};
                 singleBasket[itemCaption].count = 1;
                 singleBasket[itemCaption].cost = itemCost;
