@@ -88,7 +88,7 @@ function sendClaimToAnketa(basket, user){
     //companyInfo
     var companyInfo =  xml.createElement("companyInfo");
         var inn = xml.createElement("inn");
-        inn.textContent = "7804402344";
+        inn.textContent = "7708828549";
     companyInfo.appendChild(inn);
     //creditInfo
     var creditInfo = xml.createElement("creditInfo");
