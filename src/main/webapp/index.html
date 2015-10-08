@@ -67,7 +67,7 @@
 
         <div class="col-sm-3">
             <img src="img/logoalfa.png" class="img-responsive" alt="Альфа-Банк" style="margin-bottom: 21px; padding-left: 18px;">
-            <div class="list-group" onclick="switchTab()">
+            <div class="list-group" onclick="switchTab(event)">
                 <a href="#" class="list-group-item" id="appliances">Бытовая техника</a>
                 <a href="#" class="list-group-item" id="electronics">Электроника</a>
                 <a href="#" class="list-group-item" id="tourism">Туризм</a>
@@ -384,6 +384,7 @@
                                 <h4><a href="#"></a></h4>
                                 <p class="itemName">Комод</p>
                             </div>
+                            <div class="bubble putBasket" hidden>Добавлено в корзину</div>
                             <input type="button" class="btn addItem" value="В корзину"/>
                             <input type="button" class="btn btn-danger sendClaimFromPage" data-toggle="modal" data-target="#registerFromPage"  value="Купить в кредит"/>
                         </div>
@@ -638,7 +639,7 @@
                 <h6 style="margin-left: 20px">*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
                 <div class="modal-footer">
                     <div class="text-center">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendClaim()">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendClaim(event)">
                             Отправить заявку
                         </button>
                     </div>
@@ -677,7 +678,7 @@
                 <h6 style="margin-left: 20px">*Наличие формы регистрации на усмотрение Интернет-магазина</h6>
                 <div class="modal-footer">
                     <div class="text-center">
-                        <button type="button" id="buttonClaimPage" class="btn btn-default" data-dismiss="modal" onclick="sendClaim()">
+                        <button type="button" id="buttonClaimPage" class="btn btn-default" data-dismiss="modal" onclick="sendClaim(event)">
                             Отправить заявку
                         </button>
                     </div>
@@ -734,7 +735,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="text-center">
-                        <button type="button" id="buttonClaimExtended" class="btn  btn-danger" data-dismiss="modal" onclick="sendClaim()">
+                        <button type="button" id="buttonClaimExtended" class="btn  btn-danger" data-dismiss="modal" onclick="sendClaim(event)">
                             Купить в кредит
                         </button>
                     </div>

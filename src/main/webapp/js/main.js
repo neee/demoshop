@@ -1,7 +1,7 @@
 /**
  * Created by neee on 15.09.15.
  */
-function switchTab() {
+function switchTab(event) {
     var target = event.target ? event.target : event.srcElement;
     var tabId = target.getAttribute("id");
     showTab(tabId);
@@ -175,6 +175,7 @@ function sendClaimToAnketa(basket, user){
     //var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
     var serializedXml = new XMLSerializer().serializeToString(xml);
     //post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
+    basket = {};
     post(endpoint, {InXML:serializedXml, testMode:true});
 }
 
@@ -206,7 +207,7 @@ function post(path, params, method) {
 var basketCount = 0;
 var user = {};
 
-function sendClaim(){
+function sendClaim(event){
     var target = event.target ? event.target : event.srcElement;
     if(target.id == 'buttonClaimPage'){
         user.name = $("#registerFromPage  input[name=name]").val();
@@ -244,10 +245,10 @@ $(document).ready(
         //set event for add to basket
         var buttonsBuy = document.querySelectorAll('.addItem');
         for (var i = 0; i < buttonsBuy.length; i++) {
-            bindEvent(buttonsBuy[i], "click", function() {
+            bindEvent(buttonsBuy[i], "click", function(event) {
                 var target = event.target ? event.target : event.srcElement;
-                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].innerText);
-                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].textContent);
+                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].textContent;
                 var itemImage = target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
                 if (shopBasket[itemCaption]) {
                     shopBasket[itemCaption].count++;
@@ -263,7 +264,7 @@ $(document).ready(
                 $(basketCountElem).show();
             });
 
-            bindEvent(buttonsBuy[i], "click", function(){
+            bindEvent(buttonsBuy[i], "click", function(event){
                 var target = event.target ? event.target : event.srcElement;
                 var hint = target.parentElement.getElementsByClassName('putBasket')[0];
                 $(hint).fadeIn(300);
@@ -276,7 +277,7 @@ $(document).ready(
         //set event for send claim form page
         var buttonsSendClaim = document.querySelectorAll('.sendClaimFromPage');
         for (var i = 0; i < buttonsSendClaim.length; i++){
-            bindEvent(buttonsSendClaim[i], 'click', function(){
+            bindEvent(buttonsSendClaim[i], 'click', function(event){
                 var target = event.target ? event.target : event.srcElement;
                 var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].innerText);
                 var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].innerText;
