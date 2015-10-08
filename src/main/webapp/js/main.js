@@ -175,7 +175,7 @@ function sendClaimToAnketa(basket, user){
     //var endpoint = "http://127.0.0.1:8085/alfaform-pos/endpoint";
     var serializedXml = new XMLSerializer().serializeToString(xml);
     //post(endpoint, {InXML:xml.documentElement.outerHTML, testMode:true});
-    basket = {};
+    singleBasket = {};
     post(endpoint, {InXML:serializedXml, testMode:true});
 }
 
@@ -279,8 +279,8 @@ $(document).ready(
         for (var i = 0; i < buttonsSendClaim.length; i++){
             bindEvent(buttonsSendClaim[i], 'click', function(event){
                 var target = event.target ? event.target : event.srcElement;
-                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].innerText);
-                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].innerText;
+                var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].textContent);
+                var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].textContent;
                 var itemImage = target.parentElement.getElementsByClassName("itemImg")[0].getAttribute("src");
                 singleBasket[itemCaption] = {};
                 singleBasket[itemCaption].count = 1;
