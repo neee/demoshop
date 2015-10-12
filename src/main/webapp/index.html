@@ -512,6 +512,56 @@
                             <li><p>Почему, при переходе на анкету клиенту отображается ошибка «Для данной суммы нет кредитных продуктов»</p>
                                 Это связано с тем, что сумма покупок клиента не соответствует минимальной/максимальной суммы подключенного кредитного продукта. В данном случае необходимо связаться с поддержкой Альфа-Банка (is_support@alfabank.ru), описав проблему и назвав ИНН компании.
                             </li>
+                            <li><p>Как мне добавить кнопку себе на сайт, которая отправляет данные методом-POST на сайт банка.</p>
+                                Советуем воспользоваться данным <a id="expample-claim" data-toggle="collapse" data-target="#exmaple-claim-text">примером</a>.
+                                    <br><br>
+                                    <div id="exmaple-claim-text" hidden style="color:#337ab7; font-size: 12px;">
+                                    &lt;form action="https://anketa.alfabank.ru/alfaform-pos" method="post" <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enctype="application/x-www-form-urlencoded"&gt;<br>
+                                        &lt;textarea name="InXML" &gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;inParams&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;companyInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;inn&gt;7708828549&lt;/inn&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/companyInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;creditInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;reference&gt;A0000000001&lt;/reference&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;firstPayment&gt;0&lt;/firstPayment&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;creditPeriod&gt;15&lt;/creditPeriod&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;creditProductCode&gt;JLAO&lt;/creditProductCode&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;shopCode&gt;ALCT133_IS&lt;/shopCode&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/creditInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;clientInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;lastname&gt;Иванов&lt;/lastname&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;firstname&gt;Иван&lt;/firstname&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;middlename&gt;Иванович&lt;/middlename&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;passportNumber&gt;1234&lt;/passportNumber&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;passportSeries&gt;123456&lt;/passportSeries&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;email&gt;test@mail.com&lt;/email&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mobphone&gt;9876543210&lt;/mobphone&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/clientInfo&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;specificationList&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;specificationListRow&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;category&gt;CRT_TV&lt;/category&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;code&gt;#123&lt;/code&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;Samsung&lt;/description&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;amount&gt;1&lt;/amount&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;price&gt;10000&lt;/price&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/specificationListRow&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;specificationListRow&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;category&gt;MOBILE_PHONE&lt;/category&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;code&gt;#1222&lt;/code&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;HTC&lt;/description&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;amount&gt;2&lt;/amount&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;price&gt;10000&lt;/price&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/specificationListRow&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/specificationList&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/inParams&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;<br>
+                                        &lt;/textarea&gt;<br>
+                                        &lt;input type="submit" value="Купить в кредит" style="float: left;"&gt;<br>
+                                        &lt;/form&gt;<br>
+                                    </div>
+                            </li>
                         </ol>
 
                     </div>
