@@ -71,7 +71,7 @@ function renderTable() {
             row.insertCell(0).appendChild(document.createTextNode(""));
             row.insertCell(1).appendChild(document.createTextNode(""));
             row.insertCell(2).appendChild(document.createTextNode("Общая сумма"));
-            row.insertCell(3).appendChild(document.createTextNode(totalAma) + " р.");
+            row.insertCell(3).appendChild(document.createTextNode(totalAma + " р."));
         }
     } else {
         var row = tbody.insertRow(tbody.rows.length);
