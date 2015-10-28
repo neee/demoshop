@@ -214,12 +214,14 @@ function sendClaim(event){
         user.phone = $("#registerFromPage  input[name=phone]").val();
         user.email = $("#registerFromPage  input[name=email]").val();
         if(!$.isEmptyObject(singleBasket)){
+            _gaq.push(['_trackPageview', "/pos_demo_buy1"]);
             sendClaimToAnketa(singleBasket, user);
         }
     } else if(target.id == 'buttonClaimExtended'){
         user.name = $("#register input[name=name]").val();
         user.family = $("#register input[name=family]").val();
         if(!$.isEmptyObject(singleBasket)){
+            _gaq.push(['_trackPageview', "/pos_demo_buy1"]);
             sendClaimToAnketa(singleBasket, user);
         }
     } else {
@@ -227,6 +229,7 @@ function sendClaim(event){
         user.phone = $("#register  input[name=phone]").val();
         user.email = $("#register  input[name=email]").val();
         if(!$.isEmptyObject(shopBasket)){
+            _gaq.push(['_trackPageview', "/pos_demo_buy2"]);
             sendClaimToAnketa(shopBasket, user);
         }
     }
@@ -278,6 +281,7 @@ $(document).ready(
         var buttonsSendClaim = document.querySelectorAll('.sendClaimFromPage');
         for (var i = 0; i < buttonsSendClaim.length; i++){
             bindEvent(buttonsSendClaim[i], 'click', function(event){
+                _gaq.push(['_trackPageview', "/pos_demo_reg1"]);
                 var target = event.target ? event.target : event.srcElement;
                 var itemCost = parseFloat(target.parentElement.getElementsByClassName("itemCost")[0].textContent);
                 var itemCaption = target.parentElement.getElementsByClassName("itemName")[0].textContent;
@@ -286,6 +290,13 @@ $(document).ready(
                 singleBasket[itemCaption].count = 1;
                 singleBasket[itemCaption].cost = itemCost;
                 singleBasket[itemCaption].img = itemImage
+            })
+        }
+
+        var buttonOpenRegisterBasket = document.querySelectorAll('.openRegisterBasket');
+        for (var i = 0; i < buttonOpenRegisterBasket.length; i++){
+            bindEvent(buttonOpenRegisterBasket[i], 'click', function(event){
+                _gaq.push(['_trackPageview', "/pos_demo_reg2"]);
             })
         }
 
